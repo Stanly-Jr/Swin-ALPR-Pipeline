@@ -43,18 +43,21 @@ ocr_model_deep_v1.pth (Custom Deep CNN OCR weights)
 
 💻 Usage
 1. Single Image Inference
+   
 Update the test_image_path variable in the script to point to your image, then run:
 
 ```Bash
 python inference_single.py
 ```
 2. Batch Processing
+   
 Update the target_dir variable in the script to point to your folder of images. The script will process them and output results sequentially:
 
 ```Bash
 python inference_batch.py
 ```
 3. Evaluation Setup
+   
 To run the evaluation script against the UFPR-ALPR (or custom) dataset, ensure you have a labels.csv file with filename and plate columns. Update the paths in the main execution block:
 
 ```Bash
