@@ -25,4 +25,51 @@ Additional logic includes dynamic reading-order sorting (handling both single-li
 
 ⚙️ Installation & Requirements
 
-Ensure you have Python 3.8+ installed. Install the required dependencies using pip:
+Ensure you have Python 3.8+ installed. Install the required dependencies using pip
+
+
+Note: For optimal performance and Swin2SR inference speed, a CUDA-enabled GPU is highly recommended.
+
+📥 Model Weights
+To run the code, you will need the following trained weight files in your project directory:
+
+runs/detect/train7/weights/best.pt (YOLO character detection weights)
+
+swin2sr_v2_plate_epoch2.pth (Fine-tuned Swin2SR weights)
+
+ocr_model_deep_v1.pth (Custom Deep CNN OCR weights)
+
+(Note: If you are cloning this repo, please download the weight files from the Releases tab and place them in the root directory).
+
+💻 Usage
+1. Single Image Inference
+Update the test_image_path variable in the script to point to your image, then run:
+
+```Bash
+python inference_single.py
+```
+2. Batch Processing
+Update the target_dir variable in the script to point to your folder of images. The script will process them and output results sequentially:
+
+```Bash
+python inference_batch.py
+```
+3. Evaluation Setup
+To run the evaluation script against the UFPR-ALPR (or custom) dataset, ensure you have a labels.csv file with filename and plate columns. Update the paths in the main execution block:
+
+```Bash
+python eval_pipeline.py
+```
+🔍 Pipeline Details
+Smart Cropping: Adds a 20% margin to YOLO bounding boxes so the Swin2SR model has surrounding context to accurately restore edges.
+
+Tight Trim: After upscaling, the pipeline shaves off 10% of the margins to provide the OCR CNN with a perfectly centered, tight crop of the character.
+
+Illumination Handling: Includes utility functions (is_dark_on_dark, is_red_background) to dynamically normalize contrast and invert colors for specific challenging plate formats before they hit the OCR model.
+
+🤝 Acknowledgments
+Dataset utilized for testing: UFPR-ALPR Dataset
+
+Swin2SR by caidas
+
+YOLO by Ultralytics
