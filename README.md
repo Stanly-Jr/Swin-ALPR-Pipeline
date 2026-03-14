@@ -68,6 +68,7 @@ Tight Trim: After upscaling, the pipeline shaves off 10% of the margins to provi
 Illumination Handling: Includes utility functions (is_dark_on_dark, is_red_background) to dynamically normalize contrast and invert colors for specific challenging plate formats before they hit the OCR model.
 
 🤝 Acknowledgments
+
 Dataset utilized for testing: UFPR-ALPR Dataset
 
 Swin2SR by caidas
