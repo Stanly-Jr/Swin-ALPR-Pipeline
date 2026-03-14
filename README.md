@@ -31,6 +31,7 @@ Ensure you have Python 3.8+ installed. Install the required dependencies using p
 Note: For optimal performance and Swin2SR inference speed, a CUDA-enabled GPU is highly recommended.
 
 📥 Model Weights
+
 To run the code, you will need the following trained weight files in your project directory:
 ```
 runs/detect/train7/weights/best.pt (YOLO character detection weights)
