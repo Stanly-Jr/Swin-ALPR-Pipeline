@@ -32,13 +32,13 @@ Note: For optimal performance and Swin2SR inference speed, a CUDA-enabled GPU is
 
 📥 Model Weights
 To run the code, you will need the following trained weight files in your project directory:
-
+```
 runs/detect/train7/weights/best.pt (YOLO character detection weights)
 
 swin2sr_v2_plate_epoch2.pth (Fine-tuned Swin2SR weights)
 
 ocr_model_deep_v1.pth (Custom Deep CNN OCR weights)
-
+```
 (Note: If you are cloning this repo, please download the weight files from the Releases tab and place them in the root directory).
 
 💻 Usage
